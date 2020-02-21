@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'ui_card.dart';
+import 'card_row.dart';
+import 'card_icon.dart';
+import 'button.dart';
 
 class InputPage extends StatefulWidget {
   InputPage()
@@ -7,8 +12,8 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
-const double outerMargin = 20;
-const double cardMargin = 3;
+const double outerMargin = 15;
+const double cardMargin = 5;
 const int cardColor = 0xFF1D1F33;
 const double cardBorderRadius = 4;
 
@@ -26,42 +31,53 @@ class _InputPageState extends State<InputPage> {
           children: <Widget>[
             Expanded(
               child: Container(
-                margin: EdgeInsets.all(outerMargin),
+                margin: EdgeInsets.symmetric(
+                  horizontal: outerMargin,
+                  vertical: outerMargin / 2,
+                ),
                 child: Column(
                   children: <Widget>[
                     CardRow(
                       cards: [
-                        Card(
+                        UICard(
                           color: cardColor,
                           margin: cardMargin,
                           borderRadius: cardBorderRadius,
+                          child: CardIcon(
+                            icon: FontAwesomeIcons.mars,
+                            label: 'MALE',
+                          ),
                         ),
-                        Card(
+                        UICard(
                           color: cardColor,
                           margin: cardMargin,
                           borderRadius: cardBorderRadius,
+                          child: CardIcon(
+                            icon: FontAwesomeIcons.venus,
+                            label: 'FEMALE',
+                          ),
                         ),
                       ],
                     ),
-                    Container(
+                    SizedBox(
                       height: outerMargin,
                     ),
-                    Card(
+                    UICard(
                       color: cardColor,
                       margin: cardMargin,
                       borderRadius: cardBorderRadius,
                     ),
-                    Container(
+                    SizedBox(
                       height: outerMargin,
                     ),
                     CardRow(
                       cards: [
-                        Card(
+                        UICard(
                           color: cardColor,
                           margin: cardMargin,
                           borderRadius: cardBorderRadius,
                         ),
-                        Card(
+                        UICard(
                           color: cardColor,
                           margin: cardMargin,
                           borderRadius: cardBorderRadius,
@@ -83,62 +99,3 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class Button extends StatelessWidget {
-  final String text;
-  final int color;
-  final double height;
-  final double margin;
-  Button({
-    @required this.text,
-    this.color = 0xFFEA1556,
-    this.height = 60,
-    this.margin = 0,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Color(this.color),
-      height: this.height,
-      width: double.infinity,
-      margin: EdgeInsetsDirectional.only(top: this.margin),
-      child: Center(
-        child: Text(this.text),
-      ),
-    );
-  }
-}
-
-class Card extends StatelessWidget {
-  final int color;
-  final double margin;
-  final double borderRadius;
-  Card({
-    @required this.color,
-    this.margin = 0,
-    this.borderRadius = 0,
-  });
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: EdgeInsets.all(this.margin),
-        decoration: BoxDecoration(
-          color: Color(this.color),
-          borderRadius: BorderRadius.circular(this.borderRadius),
-        ),
-      ),
-    );
-  }
-}
-
-class CardRow extends StatelessWidget {
-  final List<Card> cards;
-  CardRow({@required this.cards});
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Row(children: this.cards),
-    );
-  }
-}
