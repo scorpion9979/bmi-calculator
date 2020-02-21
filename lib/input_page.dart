@@ -5,10 +5,12 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
+const double margin = 8;
+const double buttonMargin = 12;
+const Color color = Color(0xFF1D1F33);
+const double borderRadius = 10;
+
 class _InputPageState extends State<InputPage> {
-  static const double margin = 8;
-  static const Color color = Color(0xFF1D1F33);
-  static const double borderRadius = 10;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +54,17 @@ class _InputPageState extends State<InputPage> {
                   borderRadius: borderRadius,
                 ),
               ],
+            ),
+            Container(
+              color: Color(0xFFEA1556),
+              height: 60,
+              width: double.infinity,
+              margin: EdgeInsetsDirectional.only(top: buttonMargin),
+              child: Center(
+                child: Text(
+                  'CALCULATE YOUR BMI',
+                ),
+              ),
             ),
           ],
         ),
