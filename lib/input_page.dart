@@ -47,38 +47,30 @@ class _InputPageState extends State<InputPage> {
                   children: <Widget>[
                     CardRow(
                       cards: <Widget>[
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () =>
-                                setState(() => selectedGender = Gender.male),
-                            child: UICard(
-                              color: selectedGender == Gender.male
-                                  ? activeCardColor
-                                  : inactiveCardColor,
-                              margin: cardMargin,
-                              borderRadius: cardBorderRadius,
-                              child: CardIcon(
-                                icon: FontAwesomeIcons.mars,
-                                label: 'MALE',
-                              ),
-                            ),
+                        UICard(
+                          color: selectedGender == Gender.male
+                              ? activeCardColor
+                              : inactiveCardColor,
+                          margin: cardMargin,
+                          borderRadius: cardBorderRadius,
+                          onTap: () =>
+                              setState(() => selectedGender = Gender.male),
+                          child: CardIcon(
+                            icon: FontAwesomeIcons.mars,
+                            label: 'MALE',
                           ),
                         ),
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () =>
-                                setState(() => selectedGender = Gender.female),
-                            child: UICard(
-                              color: selectedGender == Gender.female
-                                  ? activeCardColor
-                                  : inactiveCardColor,
-                              margin: cardMargin,
-                              borderRadius: cardBorderRadius,
-                              child: CardIcon(
-                                icon: FontAwesomeIcons.venus,
-                                label: 'FEMALE',
-                              ),
-                            ),
+                        UICard(
+                          color: selectedGender == Gender.female
+                              ? activeCardColor
+                              : inactiveCardColor,
+                          margin: cardMargin,
+                          borderRadius: cardBorderRadius,
+                          onTap: () =>
+                              setState(() => selectedGender = Gender.female),
+                          child: CardIcon(
+                            icon: FontAwesomeIcons.venus,
+                            label: 'FEMALE',
                           ),
                         ),
                       ],
@@ -86,31 +78,25 @@ class _InputPageState extends State<InputPage> {
                     SizedBox(
                       height: outerMargin,
                     ),
-                    Expanded(
-                      child: UICard(
-                        color: defaultCardColor,
-                        margin: cardMargin,
-                        borderRadius: cardBorderRadius,
-                      ),
+                    UICard(
+                      color: defaultCardColor,
+                      margin: cardMargin,
+                      borderRadius: cardBorderRadius,
                     ),
                     SizedBox(
                       height: outerMargin,
                     ),
                     CardRow(
                       cards: <Widget>[
-                        Expanded(
-                          child: UICard(
-                            color: defaultCardColor,
-                            margin: cardMargin,
-                            borderRadius: cardBorderRadius,
-                          ),
+                        UICard(
+                          color: defaultCardColor,
+                          margin: cardMargin,
+                          borderRadius: cardBorderRadius,
                         ),
-                        Expanded(
-                          child: UICard(
-                            color: defaultCardColor,
-                            margin: cardMargin,
-                            borderRadius: cardBorderRadius,
-                          ),
+                        UICard(
+                          color: defaultCardColor,
+                          margin: cardMargin,
+                          borderRadius: cardBorderRadius,
                         ),
                       ],
                     ),
