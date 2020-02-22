@@ -13,14 +13,12 @@ class UICard extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        child: child,
-        margin: EdgeInsets.all(this.margin),
-        decoration: BoxDecoration(
-          color: Color(this.color),
-          borderRadius: BorderRadius.circular(this.borderRadius),
-        ),
+    return Container(
+      child: child,
+      margin: EdgeInsets.all(this.margin),
+      decoration: BoxDecoration(
+        color: Color(this.color),
+        borderRadius: BorderRadius.circular(this.borderRadius),
       ),
     );
   }

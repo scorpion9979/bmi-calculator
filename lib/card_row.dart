@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'ui_card.dart';
 
 class CardRow extends StatelessWidget {
-  final List<UICard> cards;
+  final List<Widget> cards;
   CardRow({@required this.cards});
   @override
   Widget build(BuildContext context) {
