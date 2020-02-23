@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-const double iconSize = 65;
-const double spacing = 10;
-const double labelSize = 16;
+import 'constants.dart';
 
 class CardIcon extends StatelessWidget {
   final IconData icon;
@@ -19,13 +16,11 @@ class CardIcon extends StatelessWidget {
             size: iconSize,
           ),
           SizedBox(
-            height: spacing,
+            height: labelIconSpacing,
           ),
           Text(
             this.label,
-            style: TextStyle(
-              fontSize: labelSize,
-            ),
+            style: labelTextStyle,
           ),
         ],
       ),

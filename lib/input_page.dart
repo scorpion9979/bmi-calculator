@@ -4,6 +4,7 @@ import 'ui_card.dart';
 import 'card_row.dart';
 import 'card_icon.dart';
 import 'button.dart';
+import 'constants.dart';
 
 class InputPage extends StatefulWidget {
   InputPage()
@@ -12,12 +13,6 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
-const double outerMargin = 15;
-const double cardMargin = 5;
-const int defaultCardColor = 0xFF1D1F33, activeCardColor = 0xFF1D1F33;
-const int inactiveCardColor = 0xFF111328;
-const double cardBorderRadius = 4;
-
 enum Gender {
   male,
   female,
@@ -25,6 +20,7 @@ enum Gender {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +40,7 @@ class _InputPageState extends State<InputPage> {
                   vertical: outerMargin / 2,
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     CardRow(
                       cards: <Widget>[
@@ -82,6 +79,39 @@ class _InputPageState extends State<InputPage> {
                       color: defaultCardColor,
                       margin: cardMargin,
                       borderRadius: cardBorderRadius,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'HEIGHT',
+                            style: labelTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            textBaseline: TextBaseline.alphabetic,
+                            crossAxisAlignment: CrossAxisAlignment.baseline,
+                            children: <Widget>[
+                              Text(
+                                height.toString(),
+                                style: numberTextStyle,
+                              ),
+                              Text(
+                                'cm',
+                                style: labelTextStyle,
+                              ),
+                            ],
+                          ),
+                          Slider(
+                            value: height.toDouble(),
+                            min: 120,
+                            max: 220,
+                            activeColor: Color(0xFFEA1556),
+                            inactiveColor: Color(0xFF888895),
+                            onChanged: (newHeight) =>
+                                setState(() => height = newHeight.round()),
+                          )
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: outerMargin,
