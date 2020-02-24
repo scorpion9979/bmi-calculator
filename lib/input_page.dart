@@ -21,6 +21,8 @@ enum Gender {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 180;
+  int weight = 60;
+  int age = 19;
 
   @override
   Widget build(BuildContext context) {
@@ -133,11 +135,63 @@ class _InputPageState extends State<InputPage> {
                           color: defaultCardColor,
                           margin: cardMargin,
                           borderRadius: cardBorderRadius,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'WEIGHT',
+                                style: labelTextStyle,
+                              ),
+                              Text(
+                                weight.toString(),
+                                style: numberTextStyle,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  RoundMaterialButton(
+                                    onPressed: () => setState(() => weight++),
+                                    icon: Icons.add,
+                                  ),
+                                  RoundMaterialButton(
+                                    onPressed: () => setState(() => weight--),
+                                    icon: Icons.remove,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                         UICard(
                           color: defaultCardColor,
                           margin: cardMargin,
                           borderRadius: cardBorderRadius,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'AGE',
+                                style: labelTextStyle,
+                              ),
+                              Text(
+                                age.toString(),
+                                style: numberTextStyle,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  RoundMaterialButton(
+                                    onPressed: () => setState(() => age++),
+                                    icon: Icons.add,
+                                  ),
+                                  RoundMaterialButton(
+                                    onPressed: () => setState(() => age--),
+                                    icon: Icons.remove,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),
@@ -151,6 +205,34 @@ class _InputPageState extends State<InputPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class RoundMaterialButton extends StatelessWidget {
+  final IconData icon;
+  final Function onPressed;
+  final Color color;
+
+  const RoundMaterialButton({
+    this.icon,
+    this.onPressed,
+    this.color = defaultMaterialButtonColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: this.onPressed,
+      shape: CircleBorder(),
+      fillColor: this.color,
+      constraints: BoxConstraints.tightFor(
+        width: 40,
+        height: 40,
+      ),
+      child: Icon(
+        this.icon,
       ),
     );
   }

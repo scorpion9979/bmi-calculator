@@ -7,6 +7,7 @@ const Color activeCardColor = Color(0xFF1D1F33);
 const Color inactiveCardColor = Color(0xFF111328);
 const Color sliderThumbColor = Color(0xFFEA1556);
 const Color sliderOverlayColor = Color(0x1FEA1556);
+const Color defaultMaterialButtonColor = Color(0xFF4C4F5E);
 const double cardBorderRadius = 4;
 const double iconSize = 65;
 const double labelIconSpacing = 10;
