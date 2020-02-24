@@ -101,14 +101,25 @@ class _InputPageState extends State<InputPage> {
                               ),
                             ],
                           ),
-                          Slider(
-                            value: height.toDouble(),
-                            min: 120,
-                            max: 220,
-                            activeColor: Color(0xFFEA1556),
-                            inactiveColor: Color(0xFF888895),
-                            onChanged: (newHeight) =>
-                                setState(() => height = newHeight.round()),
+                          SliderTheme(
+                            data: SliderTheme.of(context).copyWith(
+                              // provide only theme properties to change below
+                              activeTrackColor: Colors.white,
+                              disabledActiveTrackColor: Colors.white,
+                              thumbColor: Color(0xFFEA1556),
+                              overlayColor: Color(0x1FEA1556),
+                              thumbShape:
+                                  RoundSliderThumbShape(enabledThumbRadius: 15),
+                              overlayShape:
+                                  RoundSliderOverlayShape(overlayRadius: 24),
+                            ),
+                            child: Slider(
+                              value: height.toDouble(),
+                              min: 120,
+                              max: 220,
+                              onChanged: (newHeight) =>
+                                  setState(() => height = newHeight.round()),
+                            ),
                           )
                         ],
                       ),
