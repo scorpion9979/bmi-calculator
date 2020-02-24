@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UICard extends StatelessWidget {
-  final int color;
+  final Color color;
   final double margin;
   final double borderRadius;
   final Function onTap;
@@ -22,7 +22,7 @@ class UICard extends StatelessWidget {
           child: child,
           margin: EdgeInsets.all(this.margin),
           decoration: BoxDecoration(
-            color: Color(this.color),
+            color: this.color,
             borderRadius: BorderRadius.circular(this.borderRadius),
           ),
         ),

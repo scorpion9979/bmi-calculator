@@ -106,8 +106,8 @@ class _InputPageState extends State<InputPage> {
                               // provide only theme properties to change below
                               activeTrackColor: Colors.white,
                               disabledActiveTrackColor: Colors.white,
-                              thumbColor: Color(0xFFEA1556),
-                              overlayColor: Color(0x1FEA1556),
+                              thumbColor: sliderThumbColor,
+                              overlayColor: sliderOverlayColor,
                               thumbShape:
                                   RoundSliderThumbShape(enabledThumbRadius: 15),
                               overlayShape:
