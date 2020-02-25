@@ -5,6 +5,7 @@ import 'card_row.dart';
 import 'card_icon.dart';
 import 'button.dart';
 import 'constants.dart';
+import 'results_page.dart';
 
 class InputPage extends StatefulWidget {
   InputPage()
@@ -199,9 +200,17 @@ class _InputPageState extends State<InputPage> {
                 ),
               ),
             ),
-            Button(
-              text: 'CALCULATE YOUR BMI',
-              margin: outerMargin - 2 * cardMargin,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ResultsPage()),
+                );
+              },
+              child: Button(
+                text: 'CALCULATE',
+                margin: outerMargin - 2 * cardMargin,
+              ),
             ),
           ],
         ),

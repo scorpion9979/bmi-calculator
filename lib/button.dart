@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 
 const int buttonColor = 0xFFEA1556;
-const double buttonHeight = 60;
+const double buttonHeight = 65;
 
 class Button extends StatelessWidget {
   final String text;
@@ -22,8 +23,12 @@ class Button extends StatelessWidget {
       height: this.height,
       width: double.infinity,
       margin: EdgeInsetsDirectional.only(top: this.margin),
+      padding: EdgeInsets.only(bottom: 5),
       child: Center(
-        child: Text(this.text),
+        child: Text(
+          this.text,
+          style: buttonTextStyle,
+        ),
       ),
     );
   }
