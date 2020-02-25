@@ -6,6 +6,7 @@ import 'card_icon.dart';
 import 'button.dart';
 import 'constants.dart';
 import 'results_page.dart';
+import 'calculator_brain.dart';
 
 class InputPage extends StatefulWidget {
   InputPage()
@@ -202,9 +203,18 @@ class _InputPageState extends State<InputPage> {
             ),
             GestureDetector(
               onTap: () {
+                CalculatorBrain calc = CalculatorBrain(
+                  weight: this.weight,
+                  height: this.height,
+                );
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResultsPage()),
+                  MaterialPageRoute(
+                      builder: (context) => ResultsPage(
+                            bmi: calc.calculateBMI(),
+                            result: calc.getResult(),
+                            interpretation: calc.getInterpretation(),
+                          )),
                 );
               },
               child: Button(

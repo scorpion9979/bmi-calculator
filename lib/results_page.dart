@@ -4,6 +4,16 @@ import 'ui_card.dart';
 import 'button.dart';
 
 class ResultsPage extends StatelessWidget {
+  String bmi;
+  String result;
+  String interpretation;
+
+  ResultsPage({
+    @required this.bmi,
+    @required this.result,
+    @required this.interpretation,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,13 +46,13 @@ class ResultsPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
-                      'NORMAL',
+                      result,
                       style: TextStyle(
                           color: Color(0xFF21DE78),
                           fontWeight: FontWeight.w700),
                     ),
                     Text(
-                      '22.1',
+                      bmi,
                       style:
                           TextStyle(fontSize: 60, fontWeight: FontWeight.w900),
                     ),
@@ -62,7 +72,7 @@ class ResultsPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'You have a normal body weight. Good job!',
+                      interpretation,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 20,
@@ -70,17 +80,6 @@ class ResultsPage extends StatelessWidget {
                         height: 1.5,
                       ),
                     ),
-                    RawMaterialButton(
-                      onPressed: () {},
-                      fillColor: Color(0xFF181A2E),
-                      child: Text('SAVE RESULTS'),
-                      elevation: 0,
-                      highlightElevation: 0,
-                      constraints: BoxConstraints.tightFor(
-                        width: 200,
-                        height: 60,
-                      ),
-                    )
                   ],
                 ),
               ),
